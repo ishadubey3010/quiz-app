@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<h3>{% if quiz %}Edit{% else %}Add{% endif %} Quiz</h3>
+
+<form method="post">
+    {% csrf_token %}
+
+    <!-- Quiz Title -->
+    <input type="text" name="title" placeholder="Quiz Title" 
+           class="form-control mb-2"
+           value="{{ quiz.title|default:'' }}" required>
+
+    <!-- Category Selection -->
+    <select name="category" class="form-control mb-2" required>
+        <option value="" disabled {% if not quiz %}selected{% endif %}>-- Select Category --</option>
+        {% for cat in categories %}
+            <option value="{{ cat.id }}"
+                {% if quiz and quiz.category.id == cat.id %}selected{% endif %}>
+                {{ cat.name }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <!-- Status Selection -->
+    <select name="status" class="form-control mb-2">
+        <option value="active" {% if quiz and quiz.status == 'active' %}selected{% endif %}>Active</option>
+        <option value="hold" {% if quiz and quiz.status == 'hold' %}selected{% endif %}>Hold</option>
+        <option value="disabled" {% if quiz and quiz.status == 'disabled' %}selected{% endif %}>Disabled</option>
+    </select>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-success">
+        {% if quiz %}Update{% else %}Add{% endif %} Quiz
+    </button>
+</form>
+{% endblock %}

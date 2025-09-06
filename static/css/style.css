@@ -1,0 +1,46 @@
+body {
+    padding-top: 70px;   /* space for fixed navbar */
+    background: linear-gradient(120deg, #89f7fe, #66a6ff);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #212529;
+}
+
+/* Card styling */
+.card {
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    border-radius: 0.75rem;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+/* Navbar brand */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+    color: #0d6efd !important;
+}
+
+/* Buttons */
+.btn-custom {
+    background-color: #0d6efd;
+    color: #fff;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-custom:hover {
+    background-color: #0b5ed7;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Utility classes */
+.text-muted-small {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
